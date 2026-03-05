@@ -57,6 +57,7 @@ def reverseList(head):
     LeetCode 206 — Reverse Linked List
     Reverse a singly linked list and return the new head.
     Time: O(n), Space: O(1)
+    """
     prev = None
     curr = head
     
@@ -74,7 +75,7 @@ def reverseList(head):
         
     # At the end, curr is None and prev is the new head
     return prev
-    """
+    
     
     
 
