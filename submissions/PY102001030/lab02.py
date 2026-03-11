@@ -31,6 +31,8 @@ def is_balanced_parentheses(s: str) -> bool:
       is_balanced_parentheses("(]") -> False
       is_balanced_parentheses("a+(b*c)-{d/e}") -> True
     """
+    stack = []
+    mapping = {")": "(", "}": "{", "]": "["}
     for char in s:
         # If it's an opening bracket, push to stack
         if char in "({[":
@@ -97,6 +99,9 @@ def first_non_repeating(stream: str) -> str:
 
       Output: "a#bb"
     """
+    char_counts = {}
+    queue = deque()
+    result_list = []
     for char in stream:
         # Update character frequency
         char_counts[char] = char_counts.get(char, 0) + 1
@@ -163,3 +168,5 @@ def hot_potato(names: list[str], k: int) -> str:
         
     # The last person remaining is the winner
     return queue[0]
+
+
