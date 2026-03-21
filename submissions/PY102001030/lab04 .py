@@ -51,13 +51,13 @@ def build_submission_tree(base_path: str, folder1: str, folder2: str) -> TreeNod
     returns: root TreeNode
     """
     # Folder 1: PY102001030
-    file1_a = TreeNode("Lab_01.py")
-    file1_b = TreeNode("Lab_02.py")
+    file1_a = TreeNode("Lab01.py")
+    file1_b = TreeNode("Lab02.py")
     node_folder1 = TreeNode(folder1, file1_a, file1_b)
 
     # Folder 2: PY102001029
-    file2_a = TreeNode("Lab_01.py")
-    file2_b = TreeNode("Lab_02.py")
+    file2_a = TreeNode("Lab01.py")
+    file2_b = TreeNode("Lab02.py")
     node_folder2 = TreeNode(folder2, file2_a, file2_b)
 
     # Root: submissions
