@@ -50,26 +50,18 @@ def build_submission_tree(base_path: str, folder1: str, folder2: str) -> TreeNod
     folder2: name of your friend's folder inside submissions
     returns: root TreeNode
     """
-    # My folder: "PY102001030" | Friend folder: "PY102001029"
-    # Files: "Lab_01", "Lab_02"
-    
-    # Create file nodes for your folder
-    my_left_file = TreeNode("Lab_01")
-    my_right_file = TreeNode("Lab_02")
-    
-    # Create file nodes for your friend's folder
-    friend_left_file = TreeNode("Lab_01")
-    friend_right_file = TreeNode("Lab_02")
-    
-    # Create folder nodes
-    # We place the files as left and right children of the folder nodes
-    my_folder_node = TreeNode(folder1, my_left_file, my_right_file)
-    friend_folder_node = TreeNode(folder2, friend_left_file, friend_right_file)
-    
-    # Create the root node (submissions)
-    root = TreeNode(base_path, my_folder_node, friend_folder_node)
-    
-    return root
+    # Folder 1: PY102001030
+    file1_a = TreeNode("Lab_01.py")
+    file1_b = TreeNode("Lab_02.py")
+    node_folder1 = TreeNode(folder1, file1_a, file1_b)
+
+    # Folder 2: PY102001029
+    file2_a = TreeNode("Lab_01.py")
+    file2_b = TreeNode("Lab_02.py")
+    node_folder2 = TreeNode(folder2, file2_a, file2_b)
+
+    # Root: submissions
+    return TreeNode(base_path, node_folder1, node_folder2)
 
 # -------------------------
 # Q2 — Visit All Nodes Using Tree Traversal (Print Everything)
@@ -92,9 +84,9 @@ def print_all_nodes(root: TreeNode) -> None:
     root: the TreeNode returned from build_submission_tree
     """
     # Using the provided preorder function from your snippet
-    all_values = preorder(root)
-    
-    for value in all_values:
+    # We use the preorder function defined at the top of your snippet
+    nodes = preorder(root)
+    for value in nodes:
         print(value)
 
 # -------------------------
@@ -116,8 +108,8 @@ def find_py_files(root: TreeNode) -> list[str]:
     Traverse the tree and return a list of all '.py' files.
     root: the TreeNode returned from build_submission_tree
     """
-    all_nodes = preorder(root)
-    py_files = [name for name in all_nodes if name.endswith(".py")]
+    all_values = preorder(root)
+    return [val for val in all_values if val.endswith(".py")]
     
     return py_files
  
