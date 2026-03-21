@@ -116,6 +116,7 @@ def find_py_files(root: TreeNode) -> list[str]:
     Traverse the tree and return a list of all '.py' files.
     root: the TreeNode returned from build_submission_tree
     """
+    all_nodes = preorder(root)
     py_files = [name for name in all_nodes if name.endswith(".py")]
     
     return py_files
