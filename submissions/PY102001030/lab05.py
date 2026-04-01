@@ -121,7 +121,7 @@ def build_class_bst():
     
     # 3) Insert additional out-of-order IDs
     # Adding some IDs to show the insertion works
-    extra_ids = [1000, 1010, 1007]
+    extra_ids = [1000, 1010, 1007, 1009]
     for eid in extra_ids:
         root = insert_bst(root, eid)
     
