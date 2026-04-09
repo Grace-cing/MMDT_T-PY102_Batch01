@@ -51,20 +51,9 @@ def helper_fun2_(arr, i):
 # ------------------------------------------------------------
 
 def schedule_next_job(jobs, new_job):
-    
-    # TODO: insert job
-    # TODO: move it upward as needed (like heap behavior)
-    
     jobs.append(new_job)
-    helper_fun1_(jobs, len(jobs) - 1)
+    jobs = helper_fun1_ (jobs, len(jobs) - 1)
     return jobs
-
-    
-    
-    # TODO: insert job
-    # TODO: move it upward as needed (like heap behavior)
-    
-
 
 # ------------------------------------------------------------
 # Q2 — process_next_job
@@ -89,18 +78,14 @@ def schedule_next_job(jobs, new_job):
 def process_next_job(arr):
     if len(arr) == 0:
         return None
-
-    highest_priority_job = arr[0]
+    
+    removed = arr[0]
     arr[0] = arr[-1]
     arr.pop()
 
     if len(arr) > 0:
-        helper_fun2_(arr,0)
-    return highest_priority_job, arr
-
-    # TODO: return removed job and updated list
-
-    
+        arr = helper_fun2_(arr,0)
+    return (removed, arr)
 
 # ------------------------------------------------------------
 # Q3 — personal priority reflection
@@ -130,16 +115,11 @@ def personal_priority_q():
         (2, "family"),
         (1, "health"),
         (5, "friends"),
-        (4, "money")
+        (6, "money")
     ]
-    # TODO: append new_item to personal_priorty_q
     
-    new_item = (3, "security")
+    new_item = (4, "security")
     priorty_q.append(new_item)
-    
-    # TODO: return the list 
-    # highest priority (lowest score) should be always top
+    priorty_q = helper_fun1_(priorty_q, len(priorty_q) - 1)
 
-    helper_fun1_(priorty_q, len(priorty_q) - 1)
     return priorty_q
-
